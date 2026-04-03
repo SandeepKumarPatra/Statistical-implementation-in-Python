@@ -1,6 +1,3 @@
-Gemini said
-Diet & Health Data Analysis: A Statistical Exploration
-This repository contains a comprehensive Python-based statistical analysis of a diet recommendation dataset. The project demonstrates a wide range of data science techniques, from initial outlier detection and probability calculations to advanced concepts like the Central Limit Theorem and the 80-20 rule in Pareto distributions.
 
 ## Key Features & Statistical Methods
 Outlier Detection & Data Cleaning: Uses the Empirical Rule (3σ) to identify and flag outliers in height data.
