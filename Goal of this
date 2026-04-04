@@ -1,0 +1,55 @@
+1. Understanding Data's Shape (Distributions)
+
+When you first look at a single column of numerical data (Univariate Analysis), you want to understand its shape using a Histogram or Distplot (KDE)
+If the graph looks like a symmetrical bell curve: You suspect it follows a Gaussian (Normal) Distribution
+.
+To absolutely confirm it is Gaussian: You can't just trust your eyes. 
+You go for a Q-Q Plot. If the data points lie on a straight diagonal line against theoretical normal values, it is Gaussian
+-You can also check Skewness and Kurtosis (both should be close to 0),or run a One-Sample KS Test
+If it IS Gaussian: You unlock the Empirical Rule (68.2% - 95% - 99.7%). You can use this rule to easily find outliers (anything beyond the 3rd standard deviation is an outlier)
+.
+If it is NOT Gaussian: The empirical rule will fail.
+Instead, you must go for Chebyshev’s Inequality to find where your data ranges lie
+
+If the graph has a long tail to the right (Right-Skewed): You go for a Log Transformation.
+If you apply log(X) to your data and the new graph becomes a perfect Gaussian bell curve, your original data was a Log-Normal Distribution
+
+2. Finding Relationships Between Variables
+
+When you are looking at two columns of data (Bivariate Analysis), you start by drawing a Scatter Plot to visually spot a relationship
+If you want to know if one variable increases when the other increases: You go for Covariance. However, 
+covariance only tells you the direction (positive or negative), not how strong the relationship is.
+
+Because Covariance lacks scale: You upgrade to the Pearson Correlation Coefficient (PCC), which gives you a clean score between -1 and 1
+If the scatter plot shows a curve (Non-Linear): Pearson Correlation will fail because it only works well for straight lines.
+Instead, you go for the Spearman Rank Correlation, which uses the ranks of the data rather than the actual values to handle non-linear relationships
+.
+If both variables are Categorical (e.g., Gender vs. Survived): You cannot use scatter plots or correlation. Instead,
+you go for a Chi-Square Test using a contingency table to prove if the two categories are related or independent
+
+3. Comparing Two Entire Datasets
+
+If you want to know if two separate columns (or train vs. test data) behave the exact same way: You go for the Two-Sample KS Test.
+This test compares the Empirical Cumulative Distribution Function (ECDF) of both datasets.
+If the difference between their curves is too large, they do not share the same distribution
+
+
+4. Guessing Population Data from a Small Sample
+In real life, you rarely have data for the entire population, only a sample
+If you need to guess the population average from a sample: You rely on the Central Limit Theorem (CLT).
+The CLT states that if you take enough samples (n ≥ 30), the distribution of those sample means will look Gaussian, allowing you to estimate the true population mean (this is called Point Estimation)
+.
+Because a single point estimate isn't perfectly safe: You go for a Confidence Interval (CI).
+Instead of saying the average height is exactly 170cm, you say "I am 95% confident the average height is between 168cm and 172cm"
+.
+If you don't know your data's underlying distribution at all to make a CI: You go for Empirical Bootstrapping.
+This is a modern technique where you repeatedly take random samples with replacement from your existing data to simulate a distribution and find your confidence intervals
+
+5. Proving a Claim (Hypothesis Testing)
+
+If you want to prove a business claim with solid evidence (e.g., "A glucose tablet cures headaches"): You go for Hypothesis Testing. 
+You set a Null Hypothesis (H0: "The tablet does nothing") and an Alternate Hypothesis (H1: "The tablet cures headaches")
+.
+To decide which hypothesis is true: You calculate a p-value. If the p-value is very small (usually < 5%), you reject the Null Hypothesis and accept your claim
+.
+If your sample size is very small: Traditional tests might fail. Instead, you go for a Permutation Test, which is a non-parametric test that shuffles the data to find the p-value
