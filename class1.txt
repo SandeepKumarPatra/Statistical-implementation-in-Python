@@ -1,0 +1,214 @@
+statistics: 24 .2 .26
+-it is way of solving a problem with the help of data.
+-we have two types of statistics:
+ 1.Descriptive stats :
+  describing,visulizing and interpretation of data 
+ 2.Inferential stats :
+ -based on the sample we are performing the analysis and 
+ talking about the population.
+ 
+population:set of all the possible data points.
+ex:
+heights of a people india.
+sample:
+-sample is a subset of population.
+height of avg indian is 168cm.
+
+A Normal Distribution (also called Gaussian Distribution) is a probability
+distribution where data forms a symmetrical bell-shaped curve.
+Defined by two parameters
+
+Mean (μ) → center of data (avg)
+Standard deviation (σ) → how spread out the data is
+Standard Deviation is a measure that tells how spread out the data is 
+from the mean (average).
+
+1.CLT   Central Limit Theorem (CLT)
+The CLT states that When we take many random samples of sufficiently 
+large size (usually n ≥ 30) from any population, the distribution of the 
+sample means will approximate a normal distribution, regardless of the population’s
+original distribution.
+
+Population
+↓
+Sample (30 people) → mean₁
+Sample (30 people) → mean₂
+Sample (30 people) → mean₃
+Sample (30 people) → mean₄
+...
+Many sample means
+↓
+Distribution of means ≈ Normal
+
+2.CI   Confidence Interval (CI)
+A range of values that likely contains the true population parameter
+with a specified level of confidence.
+Formula: CI = x̄ ± Z × (σ/√n)
+Suppose you want the average height of all students in a city.
+You take a sample of 100 students.
+Sample mean:
+x̄ = 170 cm
+After applying the formula, you get:
+Confidence Interval = 168 cm to 172 cm
+
+3.Bootstrapping etc
+A resampling technique that estimates a statistic's distribution by 
+repeatedly sampling with replacement from your own data — no assumptions
+ about the population needed.
+ ex
+ Original Dataset
+[10, 20, 30, 40, 50]
+Pick → 10
+Because this is sampling with replacement, we put 10 back into the dataset.
+So the dataset does NOT change.
+Dataset is still:
+[10, 20, 30, 40, 50]
+again pick it may 10 again
+
+data types in the statistics:
+
+1.Numerical data :
+-it is dealing with a number.
+-we have two types of numerical data-->
+
+a.Discrete data :
+-if we convert the data into a fraction it is not making 
+any sense that data we called it as Discrete data .
+ex:
+   I have 2.3 phones--->
+   2 phones--->discrete data .
+b.continuous data 
+-if we convert the data into a fraction it is  making 
+a sense that data we called it as continuous data .
+ex:weight=78kg
+   weight=78.5
+   weight=78.95kg
+   
+c.Interval data:
+-it is a subjective data.
+ex:
+    I prefer whisky over coke.
+	10--->
+	reviews-->pizza-->
+	p1--->7/10---->conservative person.
+	p2--->7/10.-->
+	temperature--->55 C 
+	UAE-->normal 
+	money--->1000core-->
+	
+	
+d.Ratio data:
+-objective data.
+-the value here will be alwys constant.
+-
+   ex: i buy a coke of rs 10 in hyderbad 
+    weight--->78kg on in india 
+	    
+       
+ 2.categorical data:
+
+-it is dealing with groups or category.
+-we have two types of categorical data.
+
+ a.Nominal data :
+ -only using for labeling .
+ -it dont have any kind of natural order 
+ ex:
+    color:red,green,orange etc 
+	Gender:male,female.
+
+ b.ordinal data
+  -it is also used for labeling 
+  -but the data is having a natural order .
+  days in a week:
+  education qualification:Btech,Mtech.
+  
+first moment bussiness decesion:
+1.mean--->average
+2.median --->middle value
+3.mode----->most occurring
+
+second moment bussiness decesion:
+1.variance --->Variance measures how spread out the data values are from 
+the mean. It tells you how much the data points differ from the average.
+σ2=N∑(xi​−μ)2​/N  
+
+2.standard deviation--->
+
+3.range----->Range is the simplest measure of spread — it tells you the
+ difference between the largest and smallest values in a dataset.
+
+varaiance and SD bot are representing a disperssion .
+disperssion:how far the particular data point is from the 
+mean.
+
+sample mean--->X-bar (average of everyone)
+population mean--->meu (average of a selected group used to estimate the population)
+
+outliers:
+-out of range value.
+-completely diff value frm our domain 
+heights:{168,174,184,180,188,60cm}
+noise-->outliers .
+typo mistake.
+gathering a data there is some error.
+genetic problem.
+**SD and variance is geting impacted due to outliers ?
+SD IS square root of varaiance
+
+Probability:
+-chnace of occurrence of the event.
+ex:Tossing a coin
+Event:
+getting a head or tail is a event
+Experiment:
+Tossing a coin
+ex:Tossing a coin getting a head.
+  P(H)--->probability of getting head 
+  P(T)--->probability getting tail 
+  
+  P(E)= no of favorable outcomes/total no of outcomes
+  P(H)=1/2
+  
+sample space:
+-total number of possible outcomes .
+SS={H,T}--->|SS|=2.
+law of large numeber:
+
+for which type of event we can calculate the probability?
+1.event should be unbiased.
+2.Evenet shold be ME(mutually exclusive)
+  both event should no happen simultaneusly.
+  
+probability is always lies between 0 to 1 
+P(E)=0 ----->impossible event.
+P(E=1)=1---->sure event.------>classical probability.
+
+-we will always use the axiomatic probability-->set theory 
+approach.
+
+P(E)=set of all favourable outcomes/set of total outcomes
+
+SS--->power set of all possible event 
+tossing a coin two times--->
+SS={HH,TH,HT,TT}--->|SS|=4
+
+Indpenedent event: 
+E1--->tossing a coin getting head 
+E2--->rolling a die and getting 4
+E1 and E2 are the independent event .
+Mutually exclusive event :
+
+Random variable:
+-random variable is a function not a variable. 
+-random is a function which maps sample space with a real
+value.
+s1 --->random variable
+s2---->chance variable.-->toss 
+
+tossing a two coins simultaeneously 
+let X is a random variable=no of heads .
+
+X=0---->0 heads 
+X=1---->1 heads 
+x=2---->2 heads  
