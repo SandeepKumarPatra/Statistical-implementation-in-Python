@@ -1,0 +1,259 @@
+26/02/26
+Random variable:
+Rv: SS--->real_value (sample spae is allposible outcomes)
+
+ex:rolling a die 
+x-->getting a number on die 
+x=1---->getting 1 on the die 
+x=2---->getting 2 on the die 
+
+
+x=6
+
+-we have two types of random variable :
+
+1.Discrete Random variable :
+-discrete random variable will take a discrete value
+ex:rolling a die 
+x-->getting a number on die 
+x=1---->getting 1 on the die 
+x=2---->getting 2 on the die 
+
+
+x=6
+2.Continuos random variable.
+tossing a two coins paraleely
+
+SS={HH,HT,TH,TT}
+let X is discrete random variable .
+X=no of heads
+X=0 
+X=1
+X=2
+
+P(X=0) =1/4
+P(X=1) =1/2
+P(X=2) =1/4
+when we are mapping sample space--->Random variable-->probability 
+probability function.
+
+continuous random variable: 
+it will take a continuous value. 
+X--->height of a person.
+X=168.2cm 
+X=174.22cm
+
+dataset:10 days data 
+       day           no of iphone sale
+	   1                   0
+	   2                   0
+	   3                   4
+	   4                   3
+	   5                   2
+	   6                   1
+	 X=no of iphone sale .-->discrete random variable.
+	 
+	 distribution table:
+	 X=0 ---->zero iphone sold 
+	 X=1----->one iphone sold 
+	 
+	 
+	 X             P(X) 
+	 X=0            2/6
+	 X=1            1/6
+	 X=2            1/6
+	 X=3            1/6
+	 X=4            1/6
+        
+there are two types of probability function:
+1.probability mass function :
+ it is in the case discrete random variable.
+ 
+2.Probability density function.
+ it is in the case of probability density function.
+ 
+ 1.Discrete RV:(RV random variable)   
+   PMF 
+   
+ 2.Continuos RV:
+   PDF.
+ based on the random variable we have a distribution
+ 1.Discrete probability distribution :
+   discrete RV 
+   PMF
+   
+   1.Bernaullis distribution 
+   2.Binomial distribution 
+   3.discrete uniform distribution.
+ 2.Continuous probability distribution:
+   continuous RV 
+   PDF
+   1.Gaussian Distribution 
+   2.continuous unifrom distribution 
+   3.Log normal distribution 
+   4.Pareto distribution 
+   5.Weibull distribution .
+   
+ Why we need a distribution?
+ what is data analysis?
+ asking the question and giving the answer 
+ giving the answer with the help of data .
+ 1.distribution is a tool for data analysis
+ 2.many ML algorithms are having Gaussian distribution 
+   assumption.
+ 3.value imputation,outlier detection 
+   column transformation.
+ what is the exact use of distribution.
+ you a running a company:20lakhs employee.
+ you decided to print a T-shirts for all employees 
+ L,M,XL,XXL 
+ sample of 50 people.
+ what is the average height of a employee .
+ height is following the Gaussian distribution .
+ domain knowlege
+ height>168--->XL 
+ if height is following the Gaussian distribution.
+ I have one tool to do the analysis when the distribution
+ is a gaussian 
+ CDF--->cumulative distribution.
+ how many XL teshirt we have to print?
+ 
+ 
+      X             P(X) 
+	 X=0            2/6
+	 X=1            1/6
+	 X=2            1/6
+	 X=3            1/6
+	 X=4            1/6
+	 
+ PMF graph: Discrtee RV and probability 
+ PDF graph:continuous RV and probability.
+ 
+
+1.Gaussian distribution:
+-every distribution is having a distribution parameter.
+-Gaussian distribution is a continuous probability 
+distribution with a distribution parameter (mean,sd )
+-PDF of the Gaussian distribution is a bell shaped
+-if the sd increases the PDF is becoming thicker 
+-if the SD decreases the PDF is becoming thinner 
+
+X is any continuous random variable. 
+X follows the Gaussian distribution with a Distribution 
+parameter mean and Sd the PDF of X is always bell shaped.
+X=price
+-if the X follows the GD definetely it is having a bell
+shaped but every bell shaped is not GD .
+
+
+27/02/26
+
+Gaussian Distribution:
+-it is continuous probability distribution with a distribution
+parametrs mean and sd and the PDF is Symmetric about mean .
+-Let X is any continious random varaible and the 
+X~GD(mean,SD)--->then X is having a PDF which is of bell shaped
+which is symmetric abour mean
+-every bell shaped PDF is not a Gaussian 
+-there is no direct way to tell a particular variable is 
+following a GD but we have some statistical to check it.
+
+-if the distribution is a GD then definately the CDF is giving (Cumulative Distribution Function)
+best result.
+-we can draw a CDF for non-gaussian distribution but it will
+not give the perfect result.
+properties of Gaussian distribution:
+Gaussian distribution is also called as normal distribution.
+X~GD(mean=0,SD=1)-->standard normal distribution 
+np.random.randn()-->mean=0,sd=1.
+1.consider the PDF:
+meu--->population mean 
+sigma--->population SD 
+X--->any data point
+e--->euler number 
+let meu=0,sd=1 substitute these values in pdf 
+y=f(x)=e^-x**2--->graph is symmetrical about mean 
+x=0----->y=1  
+x=1---->y=0.369 
+x=2----->y=0.0185
+as the x-value increases ,y value decreses quadaratically.
+
+2.area under the curve for GD is 1.
+
+3.Empirical properties of Gaussian distribution .
+ let X is any continuous RV 
+ X~GD(mean,SD) --then definately X  follows the empirical 
+ properties of GD .
+ meu-sigma to meu+sigma-->1st range of SD --->68.2%
+ meu-2*sigma to meu+2*sigma---->2nd range of SD-->95% 
+ meu-3*sigma to meu+3*sigma--->3rd range of SD --99%
+ ex:bank accout
+ daily transacion in banks 
+ i got 1 month transaction data--->GD.
+ 32--->5cr
+ we can use the empirical properties for outlier detection
+ also 
+ if the point is going beyond the 3rd range of SD it will
+ be considered as outlier...
+ -if it is non Gaussian distribution we cannot use the 
+ empirical properties of GD .
+ -if the distribution is non gaussian ,we can still give
+ the ranges of the SD by using a Chebyshevs inequaity.
+ 
+ How ro check a Distribution is Gaussian or not?
+ 1.draw a distribution plot:
+   sns.distplot(data) --->approximate PDF 
+   
+ 2.Kurtosis
+ 
+ 3.Q-Q plot 
+   scipy 
+ 4.ks test (Kolmogorov-Smirnov Test)
+ 
+ 5.Anderson darling test(AD test).
+ 
+ ex:
+    heights 
+	weights 
+	cholstrol level 
+	blood sugar level 
+	etc-------------->follows gaussian distribution.
+	
+	population---->sample--->
+	central limit therom.
+	
+	
+calculate the population--->
+ sample-->CLT-->approximate mean-->population.-->23.6 
+ 
+ CI-->I am 95% sure that the meau is lies between 
+    [22.4,25]
+ CI --.60
+ 
+ Data Visualization:
+ -one of the tecniques for the interpretation of the 
+ data.
+ -to the insights of the data.
+ -to perform a data visualization we have a two core 
+ libraries in python .
+ 1.matplotlib 
+ 2.seaborn
+ 
+ matplot---->matlab-->matplotlib has the core plotting 
+ function of the matlab .
+ seaborn is built on the top of matplotlib .
+ matplotlib is a kind of abstraction to seabron 
+ -whatever we can do with a matplotplot same thing we can 
+ do with a seaborn with a better functionaties.
+ syntax:
+     import matplotlib.pyplot as plt 
+	 
+	 import---->keyword 
+	 matplotlib-->library name 
+	 pyplot--->sub-modeule from matplotlib 
+	 plt--->alias 
+	 
+	 import seaborn as sns 
+	 import--->keyword
+	 seaborn--->library name 
+	 sns---->alias.
