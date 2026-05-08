@@ -1,0 +1,232 @@
+Gaussian distribution:
+matplotlib 
+seaborn 
+
+
+Gaussian Distribution is also called Normal Distribution.
+
+It is a continuous probability distribution
+The graph looks like a bell-shaped curve
+It is symmetric around the mean
+
+Key properties
+
+Mean = Median = Mode
+Shape = Bell curve
+Controlled by two parameters:
+Mean (μ) → center of distribution
+Standard deviation (σ) → spread of data
+
+
+syntax:import matplotlib.pyplot as plt 
+       import seaborn as sns 
+
+
+1.Line plot:
+  its a bivariate graph(It involves two variables)
+  it will give the relationship between two variables.
+  ex-Day	Sales
+       1	100
+       2	150
+  geaph shows relationship between Day and Sales.
+
+  
+  EDA-->exploratory data analysis:(Exploring data before building models)
+
+  Understand patterns
+  Find relationships
+  Detect outlier
+  Understand distributions
+
+TYPE-
+  univariate analysis--->single column (Study of one variable only)
+  ex-Age
+  Height
+  Salary
+
+Example plots
+
+Histogram(new modern technique for ploting)
+Distplot(old technique for ploting)
+Boxplot
+
+Purpose:
+
+Understand distribution
+Find mean, median
+Detect skewness
+
+2 bivariate analysis---->two column 
+
+ex-Height vs Weight
+Age vs Salary
+
+Example plots
+
+Scatter plot
+Line plot
+Bar plot
+
+code-
+sns.scatterplot(x=df["Age"], y=df["Salary"])
+
+Purpose:
+Find correlation
+Detect relationships
+
+
+3  multivariate analaysis-->more than two column .
+ex-Age
+Salary
+Education
+Experience
+
+Plots used
+
+Pairplot
+Heatmap
+FacetGrid
+
+Purpose:
+
+Understand complex relationships
+
+
+
+how to check a distribution is a Gaussain or not?
+thare are 2 graphical method  
+
+
+1.we will draw a PDF ---->distribution plot .(univariate as it anlze 1 column)
+
+It shows data distribution shape.
+func use-
+  sns.distplot()
+
+  distribution plot-->it is a combination of histogram+
+  KDE(kernel density estimate).
+
+
+histrogram -   it show frequency of the data 
+
+ex-Age=
+20,22,23,25,30
+Histogram shows how many values fall in each range.
+What is a Histogram?
+A histogram is a graphical representation that organizes a group of data points into specified ranges, called bins.
+ It is the go-to tool for understanding the "underlying frequency distribution" of a continuous variable.
+Think of it as taking a pile of data and sorting it into buckets to see where the "peaks" and "valleys" are.
+
+  distplot is univariate plot.
+
+
+KDE (Kernel Density Estimate)
+
+KDE is a smooth curve over histogram.
+It estimates the probability density function (PDF).
+Example shape
+
+       /\ 
+      /  \
+     /    \
+
+If it looks like bell shape, distribution may be Gaussian.
+ex code-
+sns.histplot(df["Age"], kde=True)
+
+
+2.Q-Q plot:Quantile-Quantile plot.
+
+  we will use Q-Q plot in two context:
+
+  1.to check a distribution is a Gaussian or not 
+  2.to check two random variables are having a same distribution
+    or not.   |
+              |
+	X---->df["Price"] check X follows GD? 
+	X=df["Price"],Y=df["Inches"] 
+
+  check Are Price and Inches distributed similarly?
+If points lie on straight line → distributions similar.
+
+	to check X and Y are having a Same distribution or not?
+  QQ plot is a grpahical method to check a distribution is 
+  a GD or not?
+  
+  method 1(To check whether a distribution is Gaussian or not)
+
+let X is any continuous random varaible .
+X---->it is having a 500 observations/values 
+X----->x1,x2,x3,x4------------------x500 
+
+X follows any distribution  
+task:check X follows GD or not? 
+
+sort the X in ascending order 
+   x1,x2,x3-----------------------x500 --->500 data points
+  Sorting is important because quantiles depend on ordered data.
+
+   take a percentile of X 
+   
+   x5',x10',x3'-------------------x500 --->100  datapoints.
+   
+Create Theoretical Normal Values (Y)
+Now Python imagines what the data would look like if it were perfectly 
+Gaussian.
+These are not real data values — they come from the normal 
+distribution formula.
+
+So it creates theoretical normal quantiles:
+let Y is continuous RV 
+  Y~GD(mean,SD)---->1000 observations 
+  Y=y1,y2,y3----------------------y1000--->1000 datapoints 
+  sort Y in ascending order 
+  y1,y2,y3-----------------------------------y1000 
+
+  y10',y20'---------------------------------y1000'-->100 datapoints.
+ 
+ X-axis → theoretical normal values (Y)
+ Y-axis → actual data values (X) 
+here  why not actual data in x axis and theory in y ?
+cause  Theoretical distribution (normal distribution) → reference line
+Sample data → what we are testing
+as we compare sample with thery proven value 
+
+
+X--->with 100 datapoints(percentile )
+Y--->with 100 datapoints(percentile ) 
+
+
+we will draw a graph between X percentile and Y percentile 
+if we get a straight line then we can say that distribution is  
+a Gaussian .
+-if all the points of X and Y are lies in a SL(straight line) then we can 
+say that X follows the GD .
+syntax: 
+      scipy.probplot(data,dist="norm",plot=plt)
+
+    import scipy.stats as stats
+    stats.probplot(df["Price"], dist="norm", plot=plt)
+    plt.show()
+	  
+	  data-->whose distribution we want to chcek (column to test)
+	  dist="norm"-->checking its normal/GD  (compare with normal distribution)
+	  plot=plt--->we are using a matplotlib to draw a plot.
+	  
+
+Method 2 is when we compare two real datasets.
+Example:
+X = Price
+Y = Inches
+Then we check if both have same distribution.
+But your code is comparing:
+Sample data
+vs
+Theoretical normal distribution
+So it is not comparing two real variables.
+
+	  syntax:
+	    import scipy.stats as stats 
+Drawback:
+ if the size of a data is small then its hard to interpret 
+ the Q-Q plot.
