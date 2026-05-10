@@ -1,0 +1,131 @@
+3-3-26
+
+Gaussian distribution:
+
+These are graphical methods to check whether a dataset follows a 
+Gaussian (Normal) distribution.
+
+1.Distplot() 
+
+sns.histplot(df["Age"], kde=True)
+
+2.Q-Q plot.
+
+import scipy.stats as stats
+stats.probplot(df["Price"], dist="norm", plot=plt)
+plt.show()
+
+if the distribution is a Gaussian:
+
+1.Emipirical properties of Gaussian distributin
+68.2-95-99.6%   (It only works when the data is normally distributed.)
+
+Range	   Percentage of Data
+μ ± 1σ	68.2%
+μ ± 2σ	95%
+μ ± 3σ	99.7%
+
+X is any random variable---->Non Gaussian 
+suppose i want to estimate the first range of SD 
+2nd range of SD and 3rd range of SD?
+X--->represents a salary 
+X~non GD(mean,sd) 
+mean=40k
+sd=10k
+1st range 40k ± 10k which 68%
+2nd range 40k ± 20k which 95%
+
+
+2.chebyshevs  Inequality:
+
+let X is any continuous random variable .
+X~ Non-GD(mean,sd )then 
+When data is not normal, we cannot use the empirical rule.
+So we use Chebyshev’s inequality.
+
+(mean-k*sigma)<X<=(mean+k*sigma)>1-1/k^2
+
+(mean - kσ) < X ≤ (mean + kσ)
+Probability ≥ 1 - 1/k²
+μ (mean) = average
+σ (sigma) = standard deviation
+k = number of standard deviations
+k-->range of SD 
+
+mean=40k
+sd=10k
+k=2
+
+(40k-2*10k)<X <= (40k+2*10k)>0.75
+probability=1-1/2**2=1-1/4=0.75
+20k<X<=60k >0.75 (75% data lies between 20k and 60k)
+
+atleast 75% of a people in the dataset are having a salary in
+between [20k,60k]
+
+case 2
+k=1.5
+1 − 1/(1.5²)=1 − 0.444=0.556
+At least 55.6% of data lies within 1.5 standard deviations
+
+
+3.Scatter plot:(A scatter plot shows the relationship between two numerical 
+variables.)
+-Bivariate plot 
+ex-Height vs Weight
+Age vs Salary
+
+ex code-sns.scatterplot(data=df, x="Age", y="Salary")
+
+-we arae drawing a scatter in between two numerical features.
+-it is telling relationship between two numerical feature 
+-we can use scatter plot to detect the outliers .
+syntax:
+   sns.scatterplot(data,x=col1,y=col2)
+   
+4.Boxplot:
+Boxplot shows data distribution using quartiles.
+-it is univariate plot mostly .
+-it is used to detect the outliers.
+-plotting method to detect outliers 
+
+sns.boxplot(df["Salary"])
+
+
+3.Barplot:
+Barplot shows count of each category.
+-it is a univarite plot mostly .
+-it is used for the categorical columns 
+-it will the count of each category present in the column 
+ana
+
+sns.set_style("whitegrid")
+
+(Sets the background style of plots
+whitegrid → white background with grid lines.)
+
+sns.FacetGrid(df,hue="variety",height=4).map(plt.scatter,
+   "sepal.length","sepal.width").add_legend();
+plt.show()
+
+sns.FacetGrid(df, hue="variety", height=4) means
+
+Create a grid plotting object.
+
+Parameter	   Meaning
+
+df	            dataset
+hue="variety"	color by category
+height=4	      plot size
+If dataset has:
+
+variety
+Setosa
+Versicolor
+Virginica
+
+Each category gets a different color.
+
+.map(plt.scatter, "sepal.length", "sepal.width")
+meaning Draw a scatter plot.Sepal Length vs Sepal Width 
+Adds a legend to identify colors.
