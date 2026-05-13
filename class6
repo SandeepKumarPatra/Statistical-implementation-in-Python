@@ -1,0 +1,175 @@
+6/03/26
+
+skewness and Kurtosis:
+
+1. Skewness
+What is Skewness?
+
+Skewness measures how asymmetric a distribution is.
+
+A perfectly symmetric distribution means the left side and right side are
+mirror images.
+Example: Gaussian (Normal) distribution (skewness=0)
+symmetric distribution:
+-Gaussian distribution is a symmetric distribution.
+-we have a two types of skewness distribution
+
+1.right skewed 
+if the deviation is more on right side then it is a right 
+skewed distribution (skewness > 0)+ve skewed
+mean > median > mode
+
+
+2.Left skewed (skewness < 0)
+if the deviation is more on the left side then it is a left
+skewed distribution .
+mean < median < mode
+
+-skewness is defining how far the particular distribution
+is from the symmetric
+ skewness=0 ---->Normal distribution 
+ skewness>0----->right skewed distribution 
+ skewness<0----->left skewed distribution .
+ formula:
+
+ Skewness=n/(n−1)(n−2)​∑((xi​−xˉ/s)​3)
+n	number of observations
+xi	each data point
+x̄	mean
+s	standard deviation
+ skewness(data)=(n/(n-1)*(n-2))*(summ(((x-x-bar)/sd)**3)) 
+
+python code 
+import numpy as np
+from scipy.stats import skew
+data=[10,12,14,16,100]
+print(skew(data))
+
+
+ if we are getting skewness=0 and kurtosis=0 then this 
+ is a strong indication that the distribution is a  
+ Gaussian but not a guarantee...
+
+	
+2.Kurtosis:
+
+-how peaked or flat the distribution is 
+-it can be normal peaked ,more peaked,less peaked 
+-kurtosis=0--->strong indication -->normal distribution peak(Same peak as normal distribution.)
+-kurtosis>0--->more peaked than normal distribution 
+-kurtosis<0--->less peaked than normal distribution .
+
+Pearson Kurtosis
+normal kurtosis = 3
+
+ 
+Fisher method:
+excess kurtosis=kurtosis-3
+code-
+from scipy.stats import kurtosis
+kurtosis(data)
+Fisher=True
+
+Fisher=True -->we are using a excess kurtosis 
+Fisher=False--->normal kutosis 
+nomral distribution excess kurtosis=3
+excess kurtosis is more related to normal distribution 
+it is telling that how far a distribution is from normal 
+distribution.
+-by default it will be fisher kurtosis only 
+
+
+EDA:Explorartory data analysis :
+understanding data before modelling.
+types
+1.univariate analysis:
+-we are performing the analysis on single column 
+histogram
+boxplot
+mean
+median
+skewness
+2.Bivariate analysis 
+-we are performing the analysis on two columns 
+scatter plot
+correlation
+boxplot by category
+3.multivariate analysis 
+-we are performing the analysis on more than two columns.
+pairplot
+heatmap
+PCA
+
+to check a Gaussian?
+1.Distplot 
+2.Q-Q plot 
+3.skewness and kurtosis .
+4.KS test (Kolmogorov-Smirnov test.)
+5.Ad Test .--->hypothesis testing.(Anderson-Darling test)
+
+Uniform Distribution:
+all outcomes have equal probability
+random--->it is following the uniform distribution.
+-in the uniform distribution all the events are equiprobable 
+--each event are having a same probability of occuring .
+ex:rolling die--->
+SS={1,2,3,4,5,6}
+P(X=1)=1/6 
+P(X=2)=1/6 
+
+
+P(X=6)=1/6--->uniform distribution.
+
+we have a two types of uniform distributions--
+1.Discrete Unifrom distribution :
+  where the outcomes are equiprobale and finite
+   -discrete random variable 
+ -PMF
+2.Continuous Uniform distribution 
+ where the outcomes are infinite
+ set1--->even no---->{0,2,4,6,---inf}  
+ set2--->natural no--->{1,2,3,4,5----inf}  
+ set3--->integer---->{-inf-------2,-1,0,1,2------inf}
+ infinitely countable outcomes ..
+ 
+
+question:
+ rolling a die and getting a prime no is it follows the 
+ uniform distribution .
+ SS={1,2,3,4,5,6}
+ prime={2,3,5}----->
+ P(X=2)=1/3 
+ P(X=3)=1/3 
+ P(X=5)=1/3  is it a unifrom ?--->yes.--
+
+ -distribution parameter for discrete uniform distributions--
+ are low and high 
+ X~U(low,high)
+ 
+ rolling a die --->getting a number 
+ X=1----->p=1/6
+ X=2
+ X-3
+ X=4
+ X=5
+ X=6----->1/6
+ n=b-a+1 
+ 
+ a=1,b=6 
+ n=b-a+1--->6-1+1=6
+ 
+ mean=a+b/2 
+ 
+ a--------b =a,a+1,a+2,a+3-------b-2,b-1,b ---
+ mean=(a+b)/2
+ 
+ mean=Expected value -->weighted avearage .
+ 
+ 
+ 2.Continuous Uniform distribution :
+ -no of outcomes are infinite 
+ -in between a and b we are having a infinite values .
+ np.random.rand(5)-->uniform distribution 0-1
+ np.random.randn(5)
+ how to check a distribution is unifrom?
+Q-Q plot
