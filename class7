@@ -1,0 +1,130 @@
+7/03/26
+
+Continuous Unifrom distribution:
+-each and every event is a equiprobable.
+-we can have infinite number of outcomes between 
+a(start value) and b(end val) (as it is continuous so 0.2 consider)
+-the distribution parameter for uniform distribution
+low,high 
+low=a,high=b 
+-let X-->continuous random variable if 
+X~U(low,high) 
+1.
+-we can use a QQ plot to check a distribution is 
+a uniform or not.
+
+
+2.Bernaullis distribution:
+-discrete probability distributions 
+-where each event is having only two possible  
+outcomes (success/failure)
+ex:
+   tossing a  coins 
+  SS={H,T}
+  X--->discrete random variable 
+  X---> getting heads 
+  X~bernaullis(P) 
+  P-->probability of success 
+  P--->getting a head 
+ (1-p)-->getting a tail (probability of failure )
+     sucesss            Failure
+ P(getting a haed)+P(not getting haed)=1 
+ 1/2+1/2=1
+ 
+ 3.classification problem:
+ Text data --->emails--->Spam/Ham -->193k
+ new_email--->model--->spam/ham 
+ 
+ dataset:
+ each observation in this dataset  is baernaullis 
+ event 
+ Each email has only two possible outcomes:
+ email1----------->spam/ham
+ q1---->True/False --->bearnaullis distribution
+ q2---->True/false 
+ 
+ 
+ 
+ q10---->True/false 
+ combinartion all the bernaullis event from a binominal
+ distribution.
+ combination of Bernoulli events → Binomial distribution
+ 
+ let X is random variable X~Bernaulli(P) 
+ X=0---->Failure 
+ X=1---->Success 
+ Let probability of success is P 
+ 
+      X       P(X) 
+	  0       (1-P)
+	  1        P
+	      n   
+	mean=summ xi*P(Xi)--->expected values E(X) 
+	      i=1
+	mean represents weighted avearge .
+	
+	mean= 0*P(X=0)+1*P(X=1) 
+	    =0*(1-p)+1*P 
+		=P -->E(X) 
+	Var(X) = E(X²) − (E(X))²
+	variance=E(X^2)-(E(X))^2
+	variance=P*(1-P) 
+
+	Sd=sqrt(P*(1-P))  
+
+Tosing a coin 4 times simultaenously 
+what is the probability of getting 3 heads ?
+total outcome =2^4=16
+     _  _   _   _
+	 H  H   H   H 
+	 H  H   H   T 
+	 
+	 T1   T2   T3   T4 
+	 H/T  H/T  H/T  H/T 
+	 16 possible outcomes..
+	 
+	 Probability of 3 heads(formula --
+	 4C3 * (1/2)^3 * (1/2)^1
+	 4C3*(1/2*1/2*1/2)*(1/2)
+	 4*1/16
+	 1/4
+	 
+Binomial distribution: 
+	 
+	 nCp * p^p * (1-p)^(n-p) 
+	 n → number of trials
+     p → successes
+	 nCp*(suceess)^p *(Failure)^(n-p)
+	 no fo bernaullis trial will form a Binomial 
+	 distribution .
+	 any binary classification problem:
+	 every observation--->bernaullis trial
+	 pima diabetic dataset-->diabetic/Non diabetic
+
+Log Normal distribution :(log(X) follows normal distribution)
+-it is a continuous probability distribution with 
+a distribution parameter mean and sd.
+
+-As a SD is incraeses the PDF is having more tail.
+Higher standard deviation means:
+more spread
+longer right tail
+Distribution becomes more skewed.
+-let X is any continuous random variable.
+ X~lognormal(mean,SD) 
+ then definately logX will follows a Gaussian distribution.
+ex- dwell time=time user spends on website.
+ many users → small time
+few users → very large time
+So it becomes right skewed → lognormal.
+
+ -how to check a distribution is a log normal?
+ X~lognormal(mean,sd )
+ 
+ Log(X)--->GD(mean,sd )
+         we can check:
+		 distplot 
+		 QQ plot 
+		 skewness,kurtosis 
+		 ks test 
+		 ad test .
