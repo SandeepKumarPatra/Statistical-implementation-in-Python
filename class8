@@ -1,0 +1,148 @@
+9.03.26
+
+1 discrete probability distribution .
+Bernaullis distribution 
+Only 2 outcomes → 0 or 1
+
+Binomial distribution 
+Repeated Bernoulli trials
+Example: flipping coin 10 times
+
+uniform distribution 
+All values have equal probability
+Example: dice (1–6)
+
+2 Contionuous probability distribution:
+Gaussian distribution 
+Bell-shaped curve
+Defined by:
+Mean (μ) ,Standard deviation (σ)
+
+uniform distribution 
+Log normal distribution.
+
+
+3. Chebyshev’s Inequality
+
+👉 Works for ANY distribution (even non-Gaussian)
+At least (1 − 1/k²) data lies within k standard deviations
+
+X~Non Gaussian (mean,sd )--->first range of sd 
+                         --->2nd range of sd 
+						 --->3rd range of sd 
+	Chebyshevs Inequality:
+	(u-k*sig)<X<=(u+k*sig)>1-1/k^2
+
+P(μ−kσ<X≤μ+kσ)≥ 1−1/k^2
+	k=1--->1st range of sd 
+	K=1.5
+	K=3.5
+	
+4.ways to check a distribution is Gaussian?
+
+1.Distplot (Bell shape → Gaussian)
+2.QQ plot   (Straight line → Gaussian)
+3.skewness and kurtosis
+Skewness ≈ 0 → symmetric
+Kurtosis ≈ 3 → normal
+
+
+5.Log-Normal distribution:
+continuous probability distribution --->meu,sd 
+X~log normal distribution--->LogX~ GD(meu,sd )
+
+X-->x1,x2,x3,x4----------xn ---->Log normal 
+then
+logX-->log(x1),log(x2)------log(xn)--->GD .
+
+6.how to check a distribution is lognormal?
+
+1.X~Lognormal(meu,sd)---->LOG(X)--check this is GD? 
+fter take log(X) apply 
+distplot
+qq plot
+skewness and kurtosis 
+if it is a GD then definately X is Log normal.
+
+7.CLT:approximate mean .
+
+X~any NOn Gaussian distribution(mean,sd)
+estimate the 99% range of mean ..
+X=[x1,x2,x3--------xn],somehow you know the SD of the population.
+
+X---->[x1,x2,x3-----xn]-->non Gaussian  
+we can directly apply a CLT --->estimate
+for X:
+x1, x2, x3... xn → non-Gaussian
+x̄1, x̄2... → Gaussian
+we can use the empirical properties of GD 
+X-bar-->estimated mean by CLT 
+(X̄ - 3SD) to (X̄ + 3SD)
+(meu-3*sig) to (meu+3*sig )-->99.7% 
+(X-bar-3*SD) to (X-bar+3*SD)--->
+
+Power Law:
+-it follows the 80-20 rules.
+-power is a natural phenomenon which occuring in our day 
+to day life.
+ex:80% problems in a life is becoz of 20% reason 
+-if any distribution follows a power law then it is called 
+as pareto distribution.
+
+
+pareto distribution:
+-it will follow a power law(80-20 rule) 
+-it is occuring a lot in internet based company .
+-Xm  and alpha are the distribution parameter for pareto distribution.
+-Xm--->approximate mean of pareto 
+-alpha-->approximate Sd of pareto.
+-in pareto distribution we can have a infinite value of SD 
+so we cant apply  a CLT.
+AS alpha decreases--->the PDF tail is fatter 
+if alpha=Inf--->dirac delta function--->(Logistric regression)
+-                     convert
+X~Log-normal(meu,sd)------------>GD.
+we need take log of each value of X 
+X--->x1,x2,x2-----------xn ---->Log-normal
+ ---->log(X1),log(x2)----log(xn)--->GD 
+ 
+ what if we have no-gaussian distribution like a pareto?
+ how to convert ant non gaussian like pareto to Gaussian?
+ -for that we need to do a transformation  
+ -Boxcox transformation.
+ X~pareto(Xm,alpha)--->             convert 
+ X---->x1,x2,x3-----------xn Pareto--------->Gaussian
+ 
+ for each value of x we need to a a boxcox value .
+ x1------>y1 
+ x2------>y2
+ 
+ xn------>yn 
+ 
+ Y-->y1,y2,y3-------yn --->GD 
+ 
+ y1=boxcox(x1)
+ y2=boxcox(x2)
+ 
+ ----
+ 
+ yn=boxcox(xn) 
+ 
+ y=boxcox(x)--->it is returning a two values 
+ 1.Lambda 
+ 2.transformed values 
+ 
+ Yi= ((Xi)^lambda)-1)/lambda   when lambda>0
+   =log(Xi)   when lambda=0 
+   
+when lambda=0 the X follows a Log normal distribution.
+
+from scipy.stats import boxcox 
+lambda,transformed_value=stats.boxcox(X) 
+
+transformed value--->array-->its follows a GD 
+distplot 
+QQ plot
+skewness and kurtosis
+
+If normal → success ✔ 
